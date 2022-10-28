@@ -12,7 +12,10 @@ defined('_JEXEC') or die('Restricted access');
 
 class modQlcodeHelper
 {
-    function __construct($params)
+    /** @var JRegistry */
+    private $params;
+
+    public function __construct($params)
     {
         $this->params = $params;
     }
@@ -46,7 +49,7 @@ class modQlcodeHelper
 
     function addCodeParams($codeParams)
     {
-        if ('' == trim($codeParams)) return;
+        if (empty(trim($codeParams))) return;
         if (1 == $this->params->get('codeReplaceQuotes', 0)) $codeParams = str_replace('\'', '"', $codeParams);
         if (is_string($codeParams)) $codeParams = json_decode($codeParams);
         return $codeParams;

@@ -9,7 +9,8 @@
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
-$php = $params->get('php', 0);
+/** @var JRegistry $params  */
+$php = (bool) $params->get('php', 0);
 $strCode = $params->get('code', '');
 
 require_once(dirname(__FILE__) . '/helper.php');
@@ -26,11 +27,11 @@ switch ($params->get('clean', 0)) {
         $strCode = str_replace('<br />', '', $strCode);
         break;
 }
-if (1 == $php) {
+if ($php) {
     $codeParams = $obj_helper->addCodeParams($params->get('codeParams', ''));
     $strFilenameTemp = tempnam(JPATH_SITE . '/tmp', 'mod_qlcode_');
     $obj_helper->generateFile($strCode, $strFilenameTemp);
 }
 
 require JModuleHelper::getLayoutPath('mod_qlcode', $params->get('layout', 'default'));
-if (1 == $php and file_exists($strFilenameTemp)) unlink($strFilenameTemp);
+if ($php && file_exists($strFilenameTemp)) unlink($strFilenameTemp);

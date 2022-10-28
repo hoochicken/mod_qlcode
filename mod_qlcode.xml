@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension
 	type="module"
-	version="3.0"
+	version="2.0.0"
 	client="site"
 	method="upgrade">
   <name>qlcode</name>
   <author>Mareike Riegel</author>
-  <creationDate>2017-04-24</creationDate>
+  <creationDate>2022-04-24</creationDate>
   <copyright>ql.de</copyright>
   <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
   <authorEmail>info@ql.de</authorEmail>
-  <authorUrl>www.ql.de</authorUrl>
-  <version>1.0.1</version>
-  <updateservers>
-        <server type="extension" priority="1" name="qlcode - Updates"><![CDATA[https://www.blackforest-software.com/_scripts/updates/mod_qlcode.xml]]></server>
-    </updateservers>
-  <description>MOD_QLCODE_XMLDESCRIPTION</description>
+  <authorUrl>ql.de</authorUrl>
+  <version>2.0.0</version>
+	<updateservers>
+		<server type="extension" priority="1" name="qlcontent - Updates">https://raw.githubusercontent.com/hoochicken/mod_qlcode/master/_jupdate/mod_qlcode.xml</server>
+	</updateservers>
+	<description>MOD_QLCODE_XMLDESCRIPTION</description>
 	<files>
 		<filename module="mod_qlcode">mod_qlcode.php</filename>
 		<folder>tmpl</folder>

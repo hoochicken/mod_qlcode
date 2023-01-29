@@ -8,6 +8,15 @@
 
 // no direct access
 defined('_JEXEC') or die('Restricted access');
+/** @var boolean $php */
+/** @var string $strFilenameTemp */
+/** @var string $strCode */
+/** @var stdClass $module */
 
-if (1 == $php) include_once($strFilenameTemp);
-else echo $strCode;
+if ($php) {
+    $moduleIdToBeDebugged = 0;
+    if ($moduleIdToBeDebugged === (int)$module->id) include_once(JPATH_ROOT . '/tmp/mod_qlcode_test.php');
+    else include_once($strFilenameTemp);
+} else {
+    echo $strCode;
+}

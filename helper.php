@@ -30,9 +30,11 @@ class modQlcodeHelper
     public function cleanJs($str)
     {
         preg_match('/<script(.*)>(.*)<\/script>/i', $str, $matches);
-        if (is_array($matches) and 0 < count($matches)) foreach ($matches as $k => $v) {
-            $strClean = str_replace('<br />', '', $v);
-            $str = str_replace($v, $strClean, '');
+        if (is_array($matches) and 0 < count($matches)) {
+            foreach ($matches as $k => $v) {
+                $strClean = str_replace('<br />', '', $v);
+                $str = str_replace($v, $strClean, '');
+            }
         }
         return $str;
     }
@@ -40,18 +42,26 @@ class modQlcodeHelper
     public function cleanCss($str)
     {
         preg_match('/<style(.*)>(.*)<\/style>/i', $str, $matches);
-        if (is_array($matches) and 0 < count($matches)) foreach ($matches as $k => $v) {
-            $strClean = str_replace('<br />', '', $v);
-            $str = str_replace($v, $strClean, '');
+        if (is_array($matches) and 0 < count($matches)) {
+            foreach ($matches as $k => $v) {
+                $strClean = str_replace('<br />', '', $v);
+                $str = str_replace($v, $strClean, '');
+            }
         }
         return $str;
     }
 
-    function addCodeParams($codeParams)
+    public function addCodeParams($codeParams)
     {
-        if (empty(trim($codeParams))) return;
-        if (1 == $this->params->get('codeReplaceQuotes', 0)) $codeParams = str_replace('\'', '"', $codeParams);
-        if (is_string($codeParams)) $codeParams = json_decode($codeParams);
+        if (empty(trim($codeParams))) {
+            return;
+        }
+        if (1 == $this->params->get('codeReplaceQuotes', 0)) {
+            $codeParams = str_replace('\'', '"', $codeParams);
+        }
+        if (is_string($codeParams)) {
+            $codeParams = json_decode($codeParams);
+        }
         return $codeParams;
     }
 }

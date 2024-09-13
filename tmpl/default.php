@@ -15,8 +15,11 @@ defined('_JEXEC') or die('Restricted access');
 
 if ($php) {
     $moduleIdToBeDebugged = 0;
-    if ($moduleIdToBeDebugged === (int)$module->id) include_once(JPATH_ROOT . '/tmp/mod_qlcode_test.php');
-    else include_once($strFilenameTemp);
+    if ($moduleIdToBeDebugged === (int) $module->id) {
+        include_once(JPATH_ROOT . '/tmp/mod_qlcode_test.php');
+    } else {
+        include_once($strFilenameTemp);
+    }
 } else {
     echo $strCode;
 }

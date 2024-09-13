@@ -20,14 +20,19 @@ class modQlcodeHelper
         $this->params = $params;
     }
 
-    public function generateFile($str, $filenameTemp)
+    public function generateFile(string $str, string $filenameTemp)
     {
         $handle = fopen($filenameTemp, "w");
         fwrite($handle, $str, strlen($str));
         fclose($handle);
     }
 
-    public function cleanJs($str)
+    public function deleteFile(string $filenameTemp)
+    {
+        unlink($filenameTemp);
+    }
+
+    public function cleanJs(string $str)
     {
         preg_match('/<script(.*)>(.*)<\/script>/i', $str, $matches);
         if (!is_array($matches) || 0 >= count($matches)) {
@@ -42,7 +47,7 @@ class modQlcodeHelper
         return $str;
     }
 
-    public function cleanCss($str)
+    public function cleanCss(string $str)
     {
         preg_match('/<style(.*)>(.*)<\/style>/i', $str, $matches);
         if (!is_array($matches) and 0 < count($matches)) {
@@ -55,7 +60,7 @@ class modQlcodeHelper
         return $str;
     }
 
-    public function addCodeParams($codeParams): stdClass
+    public function addCodeParams(string $codeParams): stdClass
     {
         if (empty(trim($codeParams))) {
             return new stdClass();

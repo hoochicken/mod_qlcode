@@ -17,7 +17,7 @@ $code = $params->get('code', '');
 require_once(__DIR__ . '/helper.php');
 $helper = new modQlcodeHelper($params);
 
-switch ($params->get('clean', 0)) {
+switch ((int)$params->get('clean', 0)) {
     case 1:
         $code = $helper->cleanJs($code);
         break;
@@ -35,6 +35,7 @@ if ($php) {
 }
 
 require JModuleHelper::getLayoutPath('mod_qlcode', $params->get('layout', 'default'));
+
 if ($php && file_exists($filenameTemp)) {
-    unlink($filenameTemp);
+    $helper->deleteFile($filenameTemp);
 }

@@ -1,0 +1,5 @@
+{
+    "require-dev": {
+        "composer-phar/php-cs-fixer": "^3.51"
+    }
+}

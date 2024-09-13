@@ -1,0 +1,48 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "a7e6b34956d65b4c324add64913a4bbf",
+    "packages": [],
+    "packages-dev": [
+        {
+            "name": "composer-phar/php-cs-fixer",
+            "version": "v3.51.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer-phar/php-cs-fixer.git",
+                "reference": "585b79e4ed7325473038ca9778218f5ff8daf0e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer-phar/php-cs-fixer/zipball/585b79e4ed7325473038ca9778218f5ff8daf0e6",
+                "reference": "585b79e4ed7325473038ca9778218f5ff8daf0e6",
+                "shasum": ""
+            },
+            "bin": [
+                "php-cs-fixer.phar"
+            ],
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP-CS-Fixer/PHP-CS-Fixer",
+            "support": {
+                "issues": "https://github.com/composer-phar/php-cs-fixer/issues",
+                "source": "https://github.com/composer-phar/php-cs-fixer/tree/v3.51.0"
+            },
+            "time": "2024-03-01T23:44:39+00:00"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.6.0"
+}

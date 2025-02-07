@@ -30,7 +30,7 @@ switch ((int)$params->get('clean', 0)) {
 }
 if ($php) {
     $codeParams = $helper->addCodeParams($params->get('codeParams', ''));
-    $filenameTemp = tempnam(JPATH_SITE . '/tmp', 'mod_qlcode_' . $module->id . '_');
+    $filenameTemp = @tempnam(JPATH_SITE . '/tmp', 'mod_qlcode_' . $module->id . '_');
     $helper->generateFile($code, $filenameTemp);
 }
 

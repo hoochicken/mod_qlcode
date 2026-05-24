@@ -7,9 +7,12 @@
  */
 
 // no direct access
+use Joomla\CMS\Helper\ModuleHelper;
+use Joomla\Registry\Registry;
+
 defined('_JEXEC') or die('Restricted access');
 
-/** @var JRegistry $params  */
+/** @var Registry $params  */
 $php = (bool) $params->get('php', 0);
 $code = $params->get('code', '');
 /** @var stdClass $module */
@@ -34,7 +37,7 @@ if ($php) {
     $helper->generateFile($code, $filenameTemp);
 }
 
-require JModuleHelper::getLayoutPath('mod_qlcode', $params->get('layout', 'default'));
+require ModuleHelper::getLayoutPath('mod_qlcode', $params->get('layout', 'default'));
 
 if ($php && file_exists($filenameTemp)) {
     $helper->deleteFile($filenameTemp);
